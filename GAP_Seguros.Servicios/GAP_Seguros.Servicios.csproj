@@ -198,7 +198,9 @@
     <Compile Include="Controllers\SegurosController.cs" />
     <Compile Include="Credentials\AutorizacionCredencialesToken.cs" />
     <Compile Include="Extentions\OwinContextExtentions.cs" />
+    <Compile Include="Models\IPoliza.cs" />
     <Compile Include="Models\ModeloUsuario.cs" />
+    <Compile Include="Models\Poliza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

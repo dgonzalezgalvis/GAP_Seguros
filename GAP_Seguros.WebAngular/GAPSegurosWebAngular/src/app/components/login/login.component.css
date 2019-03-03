@@ -1,0 +1,16 @@
+.login {
+    padding-top: 10%;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.login-item {
+    margin: 5px;
+}
+

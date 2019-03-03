@@ -1,0 +1,18 @@
+<div class="seguros">
+    <div class="grid">
+      <div *ngFor="let seguro of seguros" class="seguro-container">
+          <div class="seguro-cell id">
+            <span class="button">Editar</span>
+            <span class="button">Eliminar</span>
+            </div>
+          <div class="seguro-cell nombre">{{seguro.nombre}}</div>
+          <div class="seguro-cell descripcion">{{seguro.descripcion}}</div>
+          <div class="seguro-cell fecha-inicio">{{seguro.fechaInicio}}</div>
+          <div class="seguro-cell periodo">{{seguro.periodo}}</div>
+          <div class="seguro-cell precio">{{seguro.precio}}</div>
+          <div class="seguro-cel riesgo">{{seguro.idTipoRiesgo}}</div>
+      </div>
+    </div>
+    <div class="button" (click)="addPoliza()">Agregar</div>
+</div>
+

@@ -5,17 +5,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using GAP_Seguros.Entidades.Entidades;
+using serv = GAP_Seguros.Servicios.Models;
 
 namespace GAP_Seguros.Servicios.Controllers
 {
     [Route("api/seguros")]
     public class SegurosController : ApiController
     {
+        private Poliza polizaRepo = new Poliza();
         // GET api/seguros
         [Authorize]
-        public IEnumerable<string> Get()
+        public List<serv.Poliza> Get()
         {
-            return new string[] { "Seguro1", "Seguro2" };
+            //return new string[] { "Seguro1", "Seguro2" };
+            var polizaReturn = new List<serv.Poliza>();
+            foreach (var poliza in polizaRepo.ObtenerPolizas())
+            {
+                polizaReturn.Add(new serv.Poliza(poliza));
+            }
+            return polizaReturn;
         }
 
         // GET api/seguros/5
@@ -25,10 +33,9 @@ namespace GAP_Seguros.Servicios.Controllers
         }
 
         // POST api/seguros
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Poliza poliza)
         {
-            var tempPoliza = new Poliza();
-            tempPoliza.AgregarPoliza();
+            polizaRepo.AgregarPoliza(poliza);
         }
 
         // PUT api/seguros/5

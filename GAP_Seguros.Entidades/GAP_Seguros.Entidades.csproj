@@ -77,7 +77,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Poliza.cs" />
+    <Compile Include="Dto\Poliza.cs" />
+    <Compile Include="Interfaces\IPoliza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

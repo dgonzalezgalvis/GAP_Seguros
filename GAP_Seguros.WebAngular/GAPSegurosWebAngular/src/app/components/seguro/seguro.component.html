@@ -1,0 +1,31 @@
+<div class="seguro">
+    <div class="seguro-item">
+      <span>Nombre</span>
+      <input type="text" [(ngModel)]="nombre">
+    </div>
+    <div class="seguro-item">
+      <span>Descripcion</span>
+      <input type="text" [(ngModel)]="password">
+    </div>
+    <div class="seguro-item fecha">
+      <span>Fecha inicio</span>
+      <angular2-date-picker [(ngModel)]="date" [settings]="settings"></angular2-date-picker>
+    </div>
+    <div class="seguro-item">
+      <span>Periodo</span>
+      <input type="number" [(ngModel)]="password">
+    </div>
+    <div class="seguro-item">
+      <span>Precio</span>
+      <input type="number" [(ngModel)]="password">
+    </div>
+    <div class="seguro-item">
+      <span>Tipo Riesgo</span>
+      <input type="text" [(ngModel)]="password">
+    </div>
+    <div class="seguro-footer">
+      <button (click)="back()">Volver</button>
+      <button (click)="editPoliza()">{{action}}</button>
+    </div>
+</div>
+

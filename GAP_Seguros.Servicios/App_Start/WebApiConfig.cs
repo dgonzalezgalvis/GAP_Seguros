@@ -11,9 +11,9 @@ namespace GAP_Seguros.Servicios
     {
         public static void Register(HttpConfiguration config)
         {
-            string origin = "https://gapseguroswebangular.azurewebsites.net/";
+            // string origin = "https://gapseguroswebangular.azurewebsites.net/";
 
-            EnableCorsAttribute cors = new EnableCorsAttribute(origin, "*", "GET,POST");
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
 
             config.EnableCors(cors);
 
