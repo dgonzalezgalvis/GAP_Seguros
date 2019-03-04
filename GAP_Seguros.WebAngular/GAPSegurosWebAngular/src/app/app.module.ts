@@ -10,18 +10,23 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SegurosComponent } from './components/seguros/seguros.component';
 import { SeguroComponent } from './components/seguro/seguro.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalInfoComponent } from './components/modal-info/modal-info.component';
 
 import {AuthServiceService} from './services/auth/auth-service.service';
 import {PolizasService} from './services/polizas/polizas.service';
 
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SegurosComponent,
-    SeguroComponent
+    SeguroComponent,
+    ModalComponent,
+    ModalInfoComponent
   ],
   imports: [
     BrowserModule,

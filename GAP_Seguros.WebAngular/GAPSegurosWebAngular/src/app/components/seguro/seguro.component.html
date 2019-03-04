@@ -1,31 +1,51 @@
 <div class="seguro">
-    <div class="seguro-item">
-      <span>Nombre</span>
-      <input type="text" [(ngModel)]="nombre">
+  <h1>{{action}} póliza</h1>
+  <div class="seguro-item">
+    <span>Nombre</span>
+    <input type="text" [(ngModel)]="poliza.nombre" placeholder="Nombre de poliza" 
+      [ngClass]=" errorNombre ? 'input-error' : 'input-active'">
+  </div>
+  <div class="seguro-item">
+    <span>Descripcion</span>
+    <input type="text" [(ngModel)]="poliza.descripcion" placeholder="Descripción de poliza"
+      [ngClass]=" errorDescripcion ? 'input-error' : 'input-active'">
+  </div>
+  <div class="seguro-item fecha">
+    <span>Fecha inicio</span>
+    <angular2-date-picker [(ngModel)]="poliza.fechaInicio" [settings]="settings"></angular2-date-picker>
+  </div>
+  <div class="seguro-item">
+    <span>Periodo</span>
+    <input type="number" [(ngModel)]="poliza.periodo"
+      [ngClass]=" errorPeriodo ? 'input-error' : 'input-active'">
+  </div>
+  <div class="seguro-item">
+    <span>Precio</span>
+    <input type="number" [(ngModel)]="poliza.precio" [ngClass]=" errorPrecio ? 'input-error' : 'input-active'">
+  </div>
+  <div class="seguro-item">
+    <span>Tipo Riesgo</span>
+    <div class="radios">
+      <div class="radio">
+        <input name="options" ng-control="options" type="radio" [value]="1" [(ngModel)]="poliza.idTipoRiesgo">
+        <label>bajo</label>
+      </div>
+      <div class="radio">
+        <input name="options" ng-control="options" type="radio" [value]="2" [(ngModel)]="poliza.idTipoRiesgo">
+        <label>medio</label>
+      </div>
+      <div class="radio">
+        <input name="options" ng-control="options" type="radio" [value]="3" [(ngModel)]="poliza.idTipoRiesgo">
+        <label>medio-alto</label>
+      </div>
+      <div class="radio">
+        <input name="options" ng-control="options" type="radio" [value]="4" [(ngModel)]="poliza.idTipoRiesgo">
+        <label>alto</label>
+      </div>
     </div>
-    <div class="seguro-item">
-      <span>Descripcion</span>
-      <input type="text" [(ngModel)]="password">
-    </div>
-    <div class="seguro-item fecha">
-      <span>Fecha inicio</span>
-      <angular2-date-picker [(ngModel)]="date" [settings]="settings"></angular2-date-picker>
-    </div>
-    <div class="seguro-item">
-      <span>Periodo</span>
-      <input type="number" [(ngModel)]="password">
-    </div>
-    <div class="seguro-item">
-      <span>Precio</span>
-      <input type="number" [(ngModel)]="password">
-    </div>
-    <div class="seguro-item">
-      <span>Tipo Riesgo</span>
-      <input type="text" [(ngModel)]="password">
-    </div>
-    <div class="seguro-footer">
-      <button (click)="back()">Volver</button>
-      <button (click)="editPoliza()">{{action}}</button>
-    </div>
+  </div>
+  <div class="seguro-footer">
+    <button (click)="back()">Volver</button>
+    <button (click)="editPoliza()">{{action}}</button>
+  </div>
 </div>
-

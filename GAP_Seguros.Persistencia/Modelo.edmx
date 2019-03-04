@@ -25,7 +25,7 @@ advertencia 6002: La tabla o vista 'gapsegurosdb.dbo.Cubrimiento' no tiene defin
           <Property Name="FechaInicio" Type="date" />
           <Property Name="Periodo" Type="tinyint" />
           <Property Name="Precio" Type="numeric" Precision="10" Scale="2" />
-          <Property Name="IdTipoRiesgo" Type="nchar" MaxLength="10" />
+          <Property Name="IdTipoRiesgo" Type="tinyint" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'gapsegurosdb.dbo.PolizaCubrimiento' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -85,7 +85,7 @@ advertencia 6002: La tabla o vista 'gapsegurosdb.dbo.TipoRiesgo' no tiene defini
           <Property Name="FechaInicio" Type="DateTime" />
           <Property Name="Periodo" Type="Byte" />
           <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="IdTipoRiesgo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdTipoRiesgo" Type="Byte" />
         </EntityType>
         <EntityType Name="Cubrimiento">
           <Key>

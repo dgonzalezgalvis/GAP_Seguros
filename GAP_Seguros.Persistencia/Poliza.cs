@@ -20,6 +20,6 @@ namespace GAP_Seguros.Persistencia
         public Nullable<System.DateTime> FechaInicio { get; set; }
         public Nullable<byte> Periodo { get; set; }
         public Nullable<decimal> Precio { get; set; }
-        public string IdTipoRiesgo { get; set; }
+        public Nullable<byte> IdTipoRiesgo { get; set; }
     }
 }

@@ -27,25 +27,33 @@ namespace GAP_Seguros.Servicios.Controllers
         }
 
         // GET api/seguros/5
+        [Authorize]
         public string Get(int id)
         {
             return "value";
         }
 
         // POST api/seguros
+        [Authorize]
         public void Post([FromBody]Poliza poliza)
         {
             polizaRepo.AgregarPoliza(poliza);
         }
 
         // PUT api/seguros/5
-        public void Put(int id, [FromBody]string value)
+        [Authorize]
+        [Route("api/seguros/{id}")]
+        public void Put([FromBody]Poliza poliza)
         {
+            polizaRepo.EditarPoliza(poliza);
         }
 
         // DELETE api/seguros/5
+        [Authorize]
+        [Route("api/seguros/{id}")]
         public void Delete(int id)
         {
+            polizaRepo.EliminarPoliza(id);
         }
     }
 }

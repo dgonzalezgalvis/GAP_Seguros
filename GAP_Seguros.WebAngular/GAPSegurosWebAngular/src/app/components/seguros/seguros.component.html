@@ -1,18 +1,69 @@
 <div class="seguros">
-    <div class="grid">
-      <div *ngFor="let seguro of seguros" class="seguro-container">
-          <div class="seguro-cell id">
-            <span class="button">Editar</span>
-            <span class="button">Eliminar</span>
-            </div>
-          <div class="seguro-cell nombre">{{seguro.nombre}}</div>
-          <div class="seguro-cell descripcion">{{seguro.descripcion}}</div>
-          <div class="seguro-cell fecha-inicio">{{seguro.fechaInicio}}</div>
-          <div class="seguro-cell periodo">{{seguro.periodo}}</div>
-          <div class="seguro-cell precio">{{seguro.precio}}</div>
-          <div class="seguro-cel riesgo">{{seguro.idTipoRiesgo}}</div>
+  <h1>Listado de Pólizas</h1>
+  <div class="grid">
+    <div class="seguro-headers">
+      <div class="seguro-header id">Acciones</div>
+      <div class="seguro-header nombre">Nombre</div>
+      <div class="seguro-header descripcion">Descripción</div>
+      <div class="seguro-header fecha-inicio">Fecha Inicio</div>
+      <div class="seguro-header periodo">Periodo</div>
+      <div class="seguro-header precio">Precio</div>
+      <div class="seguro-header riesgo">Riesgo</div>
+      <div class="seguro-header asignar">Asignar</div>
+    </div>
+
+    <div *ngFor="let seguro of seguros" class="seguro-container">
+      <div class="seguro-cell id">
+        <span class="button" (click)="editPoliza(seguro)">Editar</span>
+        <span class="button" (click)="selectPoliza(seguro);modal.show()">Eliminar</span>
+      </div>
+      <div class="seguro-cell nombre">{{seguro.nombre}}</div>
+      <div class="seguro-cell descripcion">{{seguro.descripcion}}</div>
+      <div class="seguro-cell fecha-inicio">{{seguro.fechaInicio | date }}</div>
+      <div class="seguro-cell periodo">{{seguro.periodo}}</div>
+      <div class="seguro-cell precio">{{seguro.precio | currency}}</div>
+      <div class="seguro-cell riesgo">{{seguro.tipoRiesgo}}</div>
+      <div class="seguro-cell riesgo">
+        <input type="checkbox" [checked]="seguro.asignada"
+          (change)="seguro.asignada = !seguro.asignada; validateDataCliente()"/>
       </div>
     </div>
-    <div class="button" (click)="addPoliza()">Agregar</div>
+  </div>
+  <button (click)="addPoliza()">Agregar Poliza</button>
+  <div class="cliente">
+    <h1>Datos cliente a asignar las pólizas</h1>
+    <div>
+      <label>Documento de identidad</label>
+      <input type="text" [(ngModel)]="cliente.id" (ngModelChange)="validateDataCliente()">
+    </div>
+    <div>
+      <label>Nombre Cliente</label>
+      <input type="text" [(ngModel)]="cliente.nombre" (ngModelChange)="validateDataCliente()">
+    </div>
+    <h3>* Debe ingresar los datos del cliente y seleccionar al menos una póliza para poder asignarla</h3>
+    <button (click)="modalinfo.show()" *ngIf="dataCliente">Asignar Poliza</button>
+  </div>
 </div>
-
+<app-modal #modal>
+    <div class="app-modal-header">
+        Confirmación de Eliminación
+    </div>
+    <div class="app-modal-body">
+        ¿Estás seguro que deseas eliminar la poliza?
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-default" (click)="modal.hide()">No</button>
+        <button type="button" class="btn btn-primary" (click)="deletePoliza();modal.hide()">Eliminar</button>
+    </div>
+</app-modal>
+<app-modal-info #modalinfo>
+    <div class="app-modal-header">
+        Confirmación
+    </div>
+    <div class="app-modal-body">
+        Asignación realizada exitosamente
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-primary" (click)="assignPoliza();modalinfo.hide()">Ok</button>
+    </div>
+</app-modal-info>

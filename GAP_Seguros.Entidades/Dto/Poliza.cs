@@ -18,7 +18,7 @@ namespace GAP_Seguros.Entidades.Entidades
         public Nullable<System.DateTime> FechaInicio { get; set; }
         public Nullable<byte> Periodo { get; set; }
         public Nullable<decimal> Precio { get; set; }
-        public string IdTipoRiesgo { get; set; }
+        public Nullable<byte> IdTipoRiesgo { get; set; }
 
         public Poliza()
         {
@@ -58,6 +58,7 @@ namespace GAP_Seguros.Entidades.Entidades
             tempPoliza.IdTipoRiesgo = poliza.IdTipoRiesgo;
 
             _poliza.Add(tempPoliza);
+            _poliza.Save();
         }
 
         public List<IPoliza> ObtenerPolizas()
@@ -68,6 +69,28 @@ namespace GAP_Seguros.Entidades.Entidades
                 polizasReturn.Add(new Poliza(poliza));
             }
             return polizasReturn;
+        }
+
+        public void EditarPoliza(IPoliza poliza)
+        {
+            var tempPoliza = new datos.Poliza();
+            tempPoliza.IdPoliza = poliza.IdPoliza;
+            tempPoliza.Nombre = poliza.Nombre;
+            tempPoliza.Descripcion = poliza.Descripcion;
+            tempPoliza.FechaInicio = poliza.FechaInicio;
+            tempPoliza.Periodo = poliza.Periodo;
+            tempPoliza.Precio = poliza.Precio;
+            tempPoliza.IdTipoRiesgo = poliza.IdTipoRiesgo;
+
+            _poliza.Edit(tempPoliza);
+            _poliza.Save();
+        }
+
+        public void EliminarPoliza(int id)
+        {
+            var polizaBorrar = _poliza.GetAll().ToList().Find(poliza => poliza.IdPoliza == id);
+            _poliza.Delete(polizaBorrar);
+            _poliza.Save();
         }
     }
 }

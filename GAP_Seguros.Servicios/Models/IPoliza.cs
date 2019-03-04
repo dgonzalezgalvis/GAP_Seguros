@@ -8,12 +8,12 @@ namespace GAP_Seguros.Servicios.Models
 {
     public interface IPoliza
     {
-        int IdPoliza { get; set; }
-        string Nombre { get; set; }
-        string Descripcion { get; set; }
-        Nullable<System.DateTime> FechaInicio { get; set; }
-        Nullable<byte> Periodo { get; set; }
-        Nullable<decimal> Precio { get; set; }
-        string IdTipoRiesgo { get; set; }
+        int idPoliza { get; set; }
+        string nombre { get; set; }
+        string descripcion { get; set; }
+        Nullable<System.DateTime> fechaInicio { get; set; }
+        Nullable<byte> periodo { get; set; }
+        Nullable<decimal> precio { get; set; }
+        Nullable<byte> idTipoRiesgo { get; set; }
     }
 }

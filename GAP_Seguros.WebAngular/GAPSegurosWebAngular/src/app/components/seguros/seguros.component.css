@@ -1,5 +1,5 @@
 .seguros {
-    padding-top: 10%;
+    padding-top: 5%;
     width: 100%;
     height: 100%;
     vertical-align: middle;
@@ -20,49 +20,83 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
     align-content: center;
     align-items: center;
     border: 1px solid black;
 }
 
-.seguro-cell{
+.seguro-headers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.seguro-header{
     height: 25px;
+    font-size:20px;
+}
+
+.seguro-cell{
+    height: 45px;
+    color: #1565c0;
+    font-size: 18px;
 }
 
 .id {
     width: 10%;
+    min-width: 80px;
+    font-size: 15px;
 }
 
 .nombre {
     width: 10%;
+    min-width: 80px;
 }
 
 .descripcion {
-    width: 30%;
+    width: 20%;
+    min-width: 200px;
 }
 
 .fecha-inicio {
-    width: 10%;
+    width: 15%;
+    min-width: 120px;
 }
 
 .periodo {
     width: 10%;
+    min-width: 80px;
 }
 
 .precio {
-    width: 10%;
+    width: 15%;
+    min-width: 120px;
 }
 
 .riesgo {
-    width: 10%;
+    width: 5%;
+    min-width: 80px;
+}
+
+.asignar {
+    width: 5%;
+    min-width: 60px;
 }
 
 .button {
     cursor: pointer;
     height: 18px;
     background-color: lightgrey;
-    border: 1px solid black;
+    border: 1px solid gray;
     border-radius: 9px;
     box-shadow: 2px lightgrey;
     font-family: 'Lucida Sans';
+    font-size: 15px;
+}
+
+.cliente {
+    margin-top: 40px;
+    text-align: center;
+    
 }

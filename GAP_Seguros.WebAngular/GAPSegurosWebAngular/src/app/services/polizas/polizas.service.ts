@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class PolizasService {
   url = "https://gapsegurosservicios20190226095841.azurewebsites.net/api/seguros";
+  tempPolizaEdit = {};
 
   constructor(private http: Http,
               private _authService: AuthServiceService,
@@ -31,7 +32,14 @@ export class PolizasService {
     let headers = this._authService.getHeaders();
     if(headers) {
       let body = poliza;
-      return this.http.post(`this.url/${poliza.IdPoliza}`, body, {headers});
+      return this.http.put(`${this.url}/${poliza.idPoliza}`, body, {headers});
+    }
+  }
+
+  deletePoliza(poliza) {
+    let headers = this._authService.getHeaders();
+    if(headers) {
+      return this.http.delete(`${this.url}/${poliza.idPoliza}`, {headers});
     }
   }
 }

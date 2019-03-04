@@ -17,7 +17,6 @@ namespace GAP_Seguros.Persistencia.Servicios
         public void Add(T entity)
         {
             _context.Set<T>().Add(entity);
-            _context.SaveChanges();
         }
 
         public void Delete(T entity)
@@ -37,6 +36,12 @@ namespace GAP_Seguros.Persistencia.Servicios
         }
 
         public IQueryable<T> GetAll()
+        {
+            IQueryable<T> query = _context.Set<T>();
+            return query;
+        }
+
+        public IQueryable<T> Get(int Id)
         {
             IQueryable<T> query = _context.Set<T>();
             return query;
